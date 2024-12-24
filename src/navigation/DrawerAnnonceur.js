@@ -1,77 +1,160 @@
-import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Menu, Button } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
-import DashboardAnnonceur from '../screens/annonceur/DashboardAnnonceur';
-import ProgrammesAnnonceur from '../screens/annonceur/ProgrammesAnnonceur';
-import FacturationAnnonceur from '../screens/annonceur/FacturationAnnonceur';
+import FacturationAffilie from '../screens/affilie/facturation/FacturationAffilie';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import Entypo from "react-native-vector-icons/Entypo"
+import logo from "../assets/logo.png"
+import CustomDrawerContent from '../components/customDrawer/CustomDrawerContent';
+import styles from './styles';
+import DashboardAnnonceur from '../screens/annonceur/dashbord/DashboardAnnonceur';
+import ProgrammesAnnonceur from '../screens/annonceur/Programe/ProgrammesAnnonceur';
+import SupportAnnonceur from '../screens/annonceur/support/SupportAnnoncuer';
+
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerAnnonceur() {
-  const [menuVisible, setMenuVisible] = useState(false);
-  const navigation = useNavigation();
-
-  const openMenu = () => setMenuVisible(true);
-  const closeMenu = () => setMenuVisible(false);
-
-  const handleLogout = () => {
-    closeMenu();
-    navigation.navigate('Acceuil'); // Redirige vers la page d'accueil
-  };
 
   return (
     <Drawer.Navigator
+
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={({ route }) => ({
+        drawerType:'back',
         headerStyle: {
-          backgroundColor: '#f4f4f4',
+          backgroundColor: 'white',
+          borderRadius: 0, shadowColor: "gray",
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.6,
+          shadowRadius: 5,
+          elevation: 6
         },
-        headerTitleAlign: 'center',
-        headerTitle: () => <Text style={styles.headerTitle}>{route.name}</Text>, // Titre dynamique basé sur l'onglet
+        drawerActiveBackgroundColor: '#ebfcfb',
+        drawerStyle: {
+          width: '58%', borderRadius: 0, shadowColor: "gray",
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.6,
+          shadowRadius: 5,
+          elevation: 6
+        },
+        drawerItemStyle: { borderRadius: 3, marginBottom: 4 },
+        headerTitleAlign: 'left',
+        headerTitle: () => (
+          <View style={styles.rowhead}>
+            <Image source={logo} style={styles.logo} />
+            <Text style={styles.headerTitle}>{route.name}</Text>
+          </View>),
         headerRight: () => (
-          <View style={{ marginRight: 10 }}>
-            <Menu
-              visible={menuVisible}
-              onDismiss={closeMenu}
-              anchor={
-                <Button onPress={openMenu} style={styles.avatarButton}>
-                  <Image
-                    source={{
-                      uri: 'https://i.pravatar.cc/300', // URL d'un avatar (image de profil)
-                    }}
-                    style={styles.avatar}
-                  />
-                </Button>
-              }
-            >
-              <Menu.Item onPress={() => console.log('Profile clicked')} title="Profil" />
-              <Menu.Item onPress={() => console.log('Settings clicked')} title="Paramètres" />
-              <Menu.Item onPress={handleLogout} title="Déconnexion" />
-            </Menu>
+          <View style={styles.row}>
+            <View style={styles.row}>
+              <MaterialCommunityIcons size={18} name='database' />
+            </View>
+            <Image
+              source={logo}
+              style={styles.avatar}
+            />
           </View>
         ),
       })}
     >
-      <Drawer.Screen name="Dashboard" component={DashboardAnnonceur} />
-      <Drawer.Screen name="Programmes" component={ProgrammesAnnonceur} />
-      <Drawer.Screen name="Facturation" component={FacturationAnnonceur} />
+      <Drawer.Screen
+        options={{
+          drawerIcon: ({ focused }) => (
+            <Entypo
+              name="grid"
+              size={20}
+            />
+          ),
+          drawerLabel: ({ focused }) => (
+            <Text style={{ fontSize: 14 }}>
+              Dashboard
+            </Text>
+          ),
+        }}
+        name="Dashboard"
+        component={DashboardAnnonceur}
+      />
+
+      <Drawer.Screen options={{
+        drawerIcon: ({ focused }) => (
+          <Entypo
+            name="price-tag"
+            size={18}
+          />
+        ),
+        drawerLabel: ({ focused }) => (
+          <Text style={{ fontSize: 14 }}>
+            Programmes
+          </Text>
+        ),
+      }}
+        name="PROGRAMMES" component={ProgrammesAnnonceur} />
+      <Drawer.Screen options={{
+        drawerIcon: ({ focused }) => (
+          <Entypo
+            name="images"
+            size={18}
+          />
+        ),
+        drawerLabel: ({ focused }) => (
+          <Text style={{ fontSize: 14 }}>
+            Supports
+          </Text>
+        ),
+      }} name="SUPPORTS" component={SupportAnnonceur} />
+
+      <Drawer.Screen options={{
+        drawerIcon: ({ focused }) => (
+          <MaterialCommunityIcons name="account" size={18}  />
+        ),
+        drawerLabel: ({ focused }) => (
+          <Text style={{ fontSize: 14 }}>
+            Affiliés
+          </Text>
+        ),
+      }} name="OUTILS" component={FacturationAffilie} />
+
+      <Drawer.Screen options={{
+        drawerIcon: ({ focused }) => (
+          <Entypo
+            name="pie-chart"
+            size={18}
+          />
+        ),
+        drawerLabel: ({ focused }) => (
+          <Text style={{ fontSize: 14 }}>
+            Statisque
+          </Text>
+        ),
+      }} name="STATISQUE" component={FacturationAffilie} />
+
+      <Drawer.Screen options={{
+        drawerIcon: ({ focused }) => (
+          <Entypo
+            name="email"
+            size={18}
+          />
+        ),
+        drawerLabel: ({ focused }) => (
+          <Text style={{ fontSize: 14 }}>
+            Transaction
+          </Text>
+        ),
+      }} name="TRANSACTION" component={FacturationAffilie} />
+
+      <Drawer.Screen options={{
+        drawerIcon: ({ focused }) => (
+          <Entypo
+            name="wallet"
+            size={18}
+          />
+        ),
+        drawerLabel: ({ focused }) => (
+          <Text style={{ fontSize: 14 }}>
+            Historique
+          </Text>
+        ),
+      }} name="FACTURATION" component={FacturationAffilie} />
     </Drawer.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  avatarButton: {
-    padding: 0,
-  },
-  avatar: {
-    width: 30,
-    height: 30,
-    borderRadius: 50,
-  },
-});

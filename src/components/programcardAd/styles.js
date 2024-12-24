@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     card: {
-        width: "48%",
+        width: "100%",
         marginTop: 5,
         marginBottom: 5,
         borderRadius: 5,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     levier: {
-        fontSize: 11,
+        fontSize: 12,
         color: "#9ca6d9",
         marginBottom: 5,
         marginTop: 5,
@@ -107,11 +107,22 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
 
-    row: {
+    rowmodal: {
         flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent:'space-between',
+        width:'100%'
+    },
+
+    row:{
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
+    rowcontenair:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent:'space-between'
     },
 
     textcontent: {
@@ -124,13 +135,12 @@ const styles = StyleSheet.create({
     },
 
     remu: {
-        color: '#7E8E9A',
-        marginLeft: 15,
+        color: 'black',
         marginBottom: 10
     },
 
     describe: {
-        color: '#7E8E9A',
+        color: 'black',
         textAlign: 'left',
         marginBottom: 10
     },
@@ -139,7 +149,12 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: 'white',
         borderRadius: 3,
-        marginVertical:8
+        marginVertical:8,
+        shadowColor: "gray",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.4,
+        shadowRadius: 5,
+        elevation: 6,
     },
     contentDescribe: {
         fontSize: 14,

@@ -9,7 +9,7 @@ export default function HomeScreen({ navigation }) {
             <View style={styles.buttonContainer}>
                 <Pressable
                     style={styles.button}
-                    onPress={() => navigation.navigate("Annonceur")}
+                    onPress={() => navigation.navigate("Connexion annonceur")}
                 >
                     <Text style={styles.buttonText}>Annonceur</Text>
                 </Pressable>
@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#f5f7fe",
+        backgroundColor: "white",
     },
 
     buttonText: {
         color: "black",
-        fontSize: 16,
-        fontWeight: '300'
+        fontSize: 14,
+        fontWeight: '500'
     },
 
     logo: {

@@ -4,7 +4,7 @@ import { Card, IconButton, DataTable, Divider } from "react-native-paper";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 
-const SupportCard = ({ name, cpa, image, levier }) => {
+const ProgramCardAd = ({ name, cpa, image, levier }) => {
     const [modalVisible, setModalVisible] = useState(false);
 
     const openModal = () => setModalVisible(true);
@@ -14,18 +14,46 @@ const SupportCard = ({ name, cpa, image, levier }) => {
         <>
             <Card style={styles.card}>
                 <Card.Content>
-                    <View style={styles.cardHeader}>
-                        <View style={styles.imgcontent}>
+                    <View style={styles.rowcontenair}>
+                        <View style={styles.row}>
                             <Image source={{ uri: image }} style={styles.image} />
-                        </View>
-                        <View style={styles.textContainer}>
-                            <Text style={styles.programName}>{name}</Text>
-                            <Text style={styles.levier}>{levier}</Text>
-                            <View style={styles.cpatext}>
-                                <Text style={styles.cpat}>CPA</Text>
+                            <View>
+                                <Text>Rudy's Paris</Text>
+                                <Text style={styles.levier}>Accessoires de mode</Text>
                             </View>
-                            <Text style={styles.cpa}>{cpa}</Text>
                         </View>
+                        <View>
+                            <Text style={styles.cpa}>CPA</Text>
+                            <Text style={styles.levier}>7.00%</Text>
+                        </View>
+                        <View>
+                            <Text style={styles.cpa}>Vente</Text>
+                            <Text style={styles.levier}>0</Text>
+                        </View>
+                    </View>
+                    <Divider style={styles.border} />
+                    <View style={styles.rowcontenair}>
+                        <View>
+                            <Text style={styles.cpa}>ROAS</Text>
+                            <Text style={styles.levier}>0.00</Text>
+                        </View>
+                        <View>
+                            <Text style={styles.cpa}>AR</Text>
+                            <Text style={styles.levier}>0%</Text>
+                        </View>
+                        <View>
+                            <Text style={styles.cpa}>AR</Text>
+                            <Text style={styles.levier}>0%</Text>
+                        </View>
+                        <View>
+                            <Text style={styles.cpa}>Visibilité</Text>
+                            <Text style={styles.levier}>Privé</Text>
+                        </View>
+                        <View>
+                            <Text style={styles.cpa}>Gestionnaires</Text>
+                            <Text style={styles.levier}>Tout le mode</Text>
+                        </View>
+                        <IconButton style={styles.more} onPress={openModal} size={15} icon={"magnify"} />
                     </View>
                 </Card.Content>
             </Card>
@@ -39,24 +67,30 @@ const SupportCard = ({ name, cpa, image, levier }) => {
             >
                 <View style={styles.modalOverlay}>
                     <View style={styles.modalContent}>
-                        <View style={styles.row}>
+                        <View style={styles.rowmodal}>
                             <View style={styles.imagcontent}>
                                 <Image source={{ uri: image }} style={styles.modalImage} />
                             </View>
                             <View style={styles.textcontent}>
                                 <Text style={styles.remu}>Rémunération</Text>
-                                <DataTable>
-                                    <DataTable.Header>
-                                        <DataTable.Cell>CPM</DataTable.Cell>
-                                        <DataTable.Cell>CPC</DataTable.Cell>
-                                        <DataTable.Cell>CPA</DataTable.Cell>
-                                    </DataTable.Header>
-                                    <DataTable.Row>
-                                        <DataTable.Cell>5%</DataTable.Cell>
-                                        <DataTable.Cell>1%</DataTable.Cell>
-                                        <DataTable.Cell>7%</DataTable.Cell>
-                                    </DataTable.Row>
-                                </DataTable>
+                                <View style={styles.rowcontenair}>
+                                    <View>
+                                        <Text style={styles.cpa}>CPM</Text>
+                                        <Text style={styles.levier}>0.00</Text>
+                                    </View>
+                                    <View>
+                                        <Text style={styles.cpa}>Clics</Text>
+                                        <Text style={styles.levier}>0.00</Text>
+                                    </View>
+                                    <View>
+                                        <Text style={styles.cpa}>Lead</Text>
+                                        <Text style={styles.levier}>0%</Text>
+                                    </View>
+                                    <View>
+                                        <Text style={styles.cpa}>Vente</Text>
+                                        <Text style={styles.levier}>0%</Text>
+                                    </View>
+                                </View>
                             </View>
                         </View>
                         <Card style={styles.cardDescribe}>
@@ -66,7 +100,7 @@ const SupportCard = ({ name, cpa, image, levier }) => {
                         <Card style={styles.cardDescribe}>
                             <Text style={styles.describe}>Conditions de diffusion</Text>
                             <Divider style={styles.border} />
-                            <Text style={styles.describe}><Ionicons size={15} color={"green"} name="checkmark-circle-outline"/>Autorisé</Text>
+                            <Text style={styles.describe}><Ionicons size={15} color={"green"} name="checkmark-circle-outline" />Autorisé</Text>
                             <Text style={styles.contentDescribe}>Code de réduction,
                                 Comparateur de prix CPA,
                                 Retargeting display,
@@ -83,7 +117,7 @@ const SupportCard = ({ name, cpa, image, levier }) => {
                                 Remarketing email</Text>
                         </Card>
                         <Pressable style={styles.btn} onPress={closeModal}>
-                            <Text>COd</Text>
+                            <Text>Fermer</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -92,4 +126,4 @@ const SupportCard = ({ name, cpa, image, levier }) => {
     );
 };
 
-export default SupportCard;
+export default ProgramCardAd;

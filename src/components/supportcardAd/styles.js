@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     card: {
-        width: "48%",
+        width: "100%",
         marginTop: 5,
         marginBottom: 5,
         borderRadius: 5,
@@ -33,25 +33,24 @@ const styles = StyleSheet.create({
         //backgroundColor:'red'
     },
 
-    imgcontent: {
-        width: '35%',
-    },
-
     programName: {
         fontSize: 12,
         fontWeight: "600",
     },
     cpa: {
-        fontSize: 12,
-        fontWeight: "500",
-        textAlign: "center",
+        fontSize: 11,
+        color:'#6c757d',
+        fontWeight: "400",
     },
     levier: {
-        fontSize: 11,
-        color: "#9ca6d9",
+        fontSize: 12,
         marginBottom: 5,
         marginTop: 5,
-        textAlign: "center",
+    },
+
+    ext:{
+        textAlign:'center',
+        fontSize: 12,
     },
     cpatext: {
         backgroundColor: "#FFE4C7",
@@ -65,6 +64,7 @@ const styles = StyleSheet.create({
     },
     more: {
         height: 20,
+        width:30,
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "row",
@@ -94,8 +94,8 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     modalImage: {
-        width: 100,
-        height: 100,
+        width: 50,
+        height: 30,
         borderRadius: 1,
         resizeMode: 'contain'
     },
@@ -107,11 +107,22 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
 
-    row: {
+    rowmodal: {
         flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent:'space-between',
+        width:'100%'
+    },
+
+    row:{
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
+    rowcontenair:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent:'space-between'
     },
 
     textcontent: {
@@ -119,18 +130,17 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     imagcontent: {
-        width: '20%',
-        height: '100%'
+        width: 30,
+        height: 50
     },
 
     remu: {
-        color: '#7E8E9A',
-        marginLeft: 15,
+        color: 'black',
         marginBottom: 10
     },
 
     describe: {
-        color: '#7E8E9A',
+        color: 'black',
         textAlign: 'left',
         marginBottom: 10
     },
@@ -139,7 +149,12 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: 'white',
         borderRadius: 3,
-        marginVertical:8
+        marginVertical:8,
+        shadowColor: "gray",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.4,
+        shadowRadius: 5,
+        elevation: 6,
     },
     contentDescribe: {
         fontSize: 14,
